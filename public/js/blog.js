@@ -1,7 +1,12 @@
+//få tillgång till blog ID från URL. .split("/") bildar en array så vi får bort / med en pop().
 let blogId = decodeURI(location.pathname.split("/").pop());
 
+//output exempel My-first-blog-post-wfuk
+
+//skapar en väg till specifika dokument i firestore
 let docRef = db.collection("blogs").doc(blogId);
 
+//jQuery get(), docRef.get() är ett löfte, the get method loads data from the database. The then() method returns a promise
 docRef.get().then((doc) => {
   if (doc.exists) {
     setupBlog(doc.data());
@@ -10,15 +15,21 @@ docRef.get().then((doc) => {
   }
 });
 
+//om dokumentet inte finns så skickas användaren tillbaka till framsidan
+
 const setupBlog = (data) => {
   const banner = document.querySelector(".banner");
   const blogTitle = document.querySelector(".title");
   const titleTag = document.querySelector("title");
   const publish = document.querySelector(".published");
 
+  //ändrar bannerns bakgrund till input bild
+  //json data /uploads/imagename
   banner.style.backgroundImage = `url(${data.bannerImage})`;
 
+  //tt.i= tt.i + d.t
   titleTag.innerHTML += blogTitle.innerHTML = data.title;
+  //p.i = p.i + d.p
   publish.innerHTML += data.publishedAt;
 
   const article = document.querySelector(".article");

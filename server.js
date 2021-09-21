@@ -48,6 +48,7 @@ app.post("/upload", (req, res) => {
   });
 });
 
+//jQuery get() Method
 app.get("/:blog", (req, res) => {
   res.sendFile(path.join(initial_path, "blog.html"));
 });

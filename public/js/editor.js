@@ -19,7 +19,7 @@ uploadInput.addEventListener("change", () => {
   uploadImage(uploadInput, "image");
 });
 
-//File API accessing the selected file using DOM selector
+//File API får tillgång till den valda filen med DOM selector. för att kunna ladda upp en bild måste det finnas en fil och filen måste vara av typen bild
 const uploadImage = (uploadFile, uploadType) => {
   const [file] = uploadFile.files;
   if (file && file.type.includes("image")) {
@@ -87,7 +87,7 @@ publishBtn.addEventListener("click", () => {
     let docName = `${blogTitle}-${id}`;
     let date = new Date(); // for published at info
 
-    //access firstore with db variable;
+    //access firstore with db variable; Här skapar vi vår databas blogs. .set skapar ett nytt dokument i firestore(databasen)
     db.collection("blogs")
       .doc(docName)
       .set({
