@@ -22,25 +22,30 @@ const setupBlog = (data) => {
   const blogTitle = document.querySelector(".title");
   const titleTag = document.querySelector("title");
   const publish = document.querySelector(".published");
+  const article = document.querySelector(".article");
 
   //ändrar bannerns bakgrund till input bild
   //json data /uploads/imagename
   banner.style.backgroundImage = `url(${data.bannerImage})`;
 
-  //tt.i= tt.i + d.t
+  //tt.i= tt.i + d.t DOM
   titleTag.innerHTML += blogTitle.innerHTML = data.title;
   //p.i = p.i + d.p
   publish.innerHTML += data.publishedAt;
 
-  const article = document.querySelector(".article");
-  addArticle(article, data.article);
+  article.innerHTML = data.article;
+
+  /* addArticle(article, data.article); */
 };
 
+//article.innerHTML = data.article;
+
+/* 
 const addArticle = (ele, data) => {
   data = data.split("\n").filter((item) => item.length);
-  // console.log(data);
+  // console.log(data); */
 
-  data.forEach((item) => {
+/* data.forEach((item) => {
     // check for heading
     if (item[0] == "#") {
       let hCount = 0;
@@ -75,4 +80,4 @@ const addArticle = (ele, data) => {
       ele.innerHTML += `<p>${item}</p>`;
     }
   });
-};
+}; */

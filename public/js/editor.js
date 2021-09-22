@@ -15,9 +15,9 @@ bannerImage.addEventListener("change", () => {
   uploadImage(bannerImage, "banner");
 });
 
-uploadInput.addEventListener("change", () => {
+/* uploadInput.addEventListener("change", () => {
   uploadImage(uploadInput, "image");
-});
+}); */
 
 //File API får tillgång till den valda filen med DOM selector. för att kunna ladda upp en bild måste det finnas en fil och filen måste vara av typen bild
 const uploadImage = (uploadFile, uploadType) => {
@@ -48,14 +48,15 @@ const uploadImage = (uploadFile, uploadType) => {
   }
 };
 
-const addImage = (imagepath, alt) => {
+//lägg till bild i artikel
+/* const addImage = (imagepath, alt) => {
   let curPos = articleFeild.selectionStart;
   let textToInsert = `\r![${alt}](${imagepath})\r`;
   articleFeild.value =
     articleFeild.value.slice(0, curPos) +
     textToInsert +
     articleFeild.value.slice(curPos);
-};
+}; */
 
 let months = [
   "Jan",
