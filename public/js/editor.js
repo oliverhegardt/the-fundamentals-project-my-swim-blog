@@ -10,7 +10,9 @@ let bannerPath;
 const publishBtn = document.querySelector(".publish-btn");
 const uploadInput = document.querySelector("#image-upload");
 
-//.addEventListner funktionen kommer bli kallad när det särskilda eventet change händer bannerimage. change, by slecting a file in the file picker for <input type="file"> target.addEventListner(type, listener). När change sker så utförs funktionen uploadImage
+//.addEventListner funktionen kommer bli kallad när det särskilda eventet change händer bannerimage.
+
+//change sker by slecting a file in the file picker for <input type="file"> target(bannerImage).addEventListner(type, listener). När change sker så utförs funktionen uploadImage
 bannerImage.addEventListener("change", () => {
   uploadImage(bannerImage, "banner");
 });
@@ -19,7 +21,9 @@ bannerImage.addEventListener("change", () => {
   uploadImage(uploadInput, "image");
 }); */
 
-//File API får tillgång till den valda filen med DOM selector. för att kunna ladda upp en bild måste det finnas en fil och filen måste vara av typen bild
+//File API får tillgång till den valda filen med DOM selector. för att kunna ladda upp en bild måste det finnas en fil och filen måste vara av typen bild.
+
+//an array containing one object, [0], destruct the array så vi får ut objektet.
 const uploadImage = (uploadFile, uploadType) => {
   const [file] = uploadFile.files;
   if (file && file.type.includes("image")) {
