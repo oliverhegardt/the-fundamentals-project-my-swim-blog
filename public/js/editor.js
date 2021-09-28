@@ -21,9 +21,11 @@ bannerImage.addEventListener("change", () => {
   uploadImage(uploadInput, "image");
 }); */
 
-//File API får tillgång till den valda filen med DOM selector. för att kunna ladda upp en bild måste det finnas en fil och filen måste vara av typen bild.
+//File API får tillgång till den valda filen med DOM selector. för att kunna ladda upp en bild måste det finnas en filen och filen måste inkluderar stringen image
 
 //an array containing one object, [0], destruct the array så vi får ut objektet.
+
+//files is a filelist of the file(s) selected by the user in the input. ger namnet på filen utan väg information och kan användas för att få tillgång till filerna.
 const uploadImage = (uploadFile, uploadType) => {
   const [file] = uploadFile.files;
   if (file && file.type.includes("image")) {
@@ -37,6 +39,7 @@ const uploadImage = (uploadFile, uploadType) => {
     })
       //.then also returns a promise, a promise represents an operation that hasn't compledted yet.
       // returns the body as promise with json content
+      //om upload svarar så svarar den med json data av bilden. Om datan finns så kontrollerars den att den är av typen image.
       .then((res) => res.json())
       .then((data) => {
         if (uploadType == "image") {
