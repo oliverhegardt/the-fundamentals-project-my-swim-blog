@@ -21,7 +21,7 @@ bannerImage.addEventListener("change", () => {
   uploadImage(uploadInput, "image");
 }); */
 
-//File API får tillgång till den valda filen med DOM selector. för att kunna ladda upp en bild måste det finnas en filen och filen måste inkluderar stringen image
+//File API får tillgång till den valda filen med DOM selector. för att kunna ladda upp en bild måste det finnas en filen och typen av filen måste inkluderar stringen image
 
 //an array containing one object, [0], destruct the array så vi får ut objektet.
 
@@ -37,7 +37,7 @@ const uploadImage = (uploadFile, uploadType) => {
       method: "post",
       body: formdata,
     })
-      //.then also returns a promise, a promise represents an operation that hasn't compledted yet.
+      //.then also returns a promise, a promise represents an operation that hasn't completed yet.
       // returns the body as promise with json content
       //om upload svarar så svarar den med json data av bilden. Om datan finns så kontrollerars den att den är av typen image.
       .then((res) => res.json())
@@ -49,7 +49,7 @@ const uploadImage = (uploadFile, uploadType) => {
           banner.style.backgroundImage = `url("${bannerPath}")`;
         }
       });
-    //om inget fungerar så körs det här
+    //om något annat än en bild laddas upp visas det här
   } else {
     alert("upload Image only");
   }

@@ -20,13 +20,15 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(initial_path, "home.html"));
 });
 
-//skapar ny rut at /editor
+//skapar ny rut  at localhost:3000/editor
+//(request, respond) är webbläsaren och servern som pratar med varandra
 app.get("/editor", (req, res) => {
   res.sendFile(path.join(initial_path, "editor.html"));
 });
 
-//upload link, route for uploads
-// date object, so we can name upploaded images with timestamps.
+//upload link, rut för uppladdningar så de lägg i mappen upploads
+// date object, so we can name upploaded images with timestamps. post sends data to the server
+//addressen var jag vill få posten
 app.post("/upload", (req, res) => {
   //kräver att det är bilder av typen img
   let file = req.files.image;
@@ -37,7 +39,8 @@ app.post("/upload", (req, res) => {
   // makes upploaded image name unique, image uppload path
   let path = "public/uploads/" + imagename;
 
-  // create upload, use file.mv() to create the upload
+  // skapa uppladdning, file api
+
   file.mv(path, (err, result) => {
     if (err) {
       throw err;
