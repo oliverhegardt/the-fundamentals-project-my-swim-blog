@@ -42,9 +42,7 @@ const uploadImage = (uploadFile, uploadType) => {
       //om upload svarar så svarar den med json data av bilden. Om datan finns så kontrollerars den att den är av typen image.
       .then((res) => res.json())
       .then((data) => {
-        if (uploadType == "image") {
-          addImage(data, file.name);
-        } else {
+        if (uploadType == "banner") {
           bannerPath = `${location.origin}/${data}`;
           banner.style.backgroundImage = `url("${bannerPath}")`;
         }

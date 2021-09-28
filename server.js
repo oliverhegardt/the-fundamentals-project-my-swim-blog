@@ -31,15 +31,18 @@ app.get("/editor", (req, res) => {
 //addressen var jag vill få posten
 app.post("/upload", (req, res) => {
   //kräver att det är bilder av typen img
+  //image samm som i editor.js
   let file = req.files.image;
   //skaper ett date object så vi kan namnge uppladdade blider med tidstämpel
   let date = new Date();
   // image name
   let imagename = date.getDate() + date.getTime() + file.name;
   // makes upploaded image name unique, image uppload path
+  //först läggs bilder här
   let path = "public/uploads/" + imagename;
 
   // skapa uppladdning, file api
+  //file.mv a function to move the elsewhere on the server
 
   file.mv(path, (err, result) => {
     if (err) {

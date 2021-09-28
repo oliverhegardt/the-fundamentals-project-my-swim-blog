@@ -25,7 +25,7 @@ const setupBlog = (data) => {
   const article = document.querySelector(".article");
 
   //ändrar bannerns bakgrund till input bild
-  //json data /uploads/imagename
+
   banner.style.backgroundImage = `url(${data.bannerImage})`;
 
   //tt.i= tt.i + d.t DOM
