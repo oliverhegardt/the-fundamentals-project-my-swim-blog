@@ -8,7 +8,8 @@ const banner = document.querySelector(".banner");
 let bannerPath;
 
 const publishBtn = document.querySelector(".publish-btn");
-const uploadInput = document.querySelector("#image-upload");
+
+/* const uploadInput = document.querySelector("#image-upload"); */
 
 //.addEventListner funktionen kommer bli kallad när det särskilda eventet change händer bannerimage.
 
@@ -33,13 +34,18 @@ const uploadImage = (uploadFile, uploadType) => {
     formdata.append("image", file);
 
     //fetch returns an object as promise, that contains information
+
+    //When the request completes, the promises is resolved with the .then method
     fetch("/upload", {
       method: "post",
       body: formdata,
     })
       //.then also returns a promise, a promise represents an operation that hasn't completed yet.
+      //om upload svarar så svarar den med json data av bilden. Om datan finns så kontrollerars den att den är av typen banner. .then väntar på att fetch requesten och på svar ska bli lyckad.
       // returns the body as promise with json content
-      //om upload svarar så svarar den med json data av bilden. Om datan finns så kontrollerars den att den är av typen image.
+      //Because the .then keyword is present, the asynchronous function is paused å körs i bakgrunden until the request completes.
+      //response.json() returns a promise resolved to a JSON object
+
       .then((res) => res.json())
       .then((data) => {
         if (uploadType == "banner") {
@@ -52,16 +58,6 @@ const uploadImage = (uploadFile, uploadType) => {
     alert("upload Image only");
   }
 };
-
-//lägg till bild i artikel
-/* const addImage = (imagepath, alt) => {
-  let curPos = articleFeild.selectionStart;
-  let textToInsert = `\r![${alt}](${imagepath})\r`;
-  articleFeild.value =
-    articleFeild.value.slice(0, curPos) +
-    textToInsert +
-    articleFeild.value.slice(curPos);
-}; */
 
 let months = [
   "Jan",
@@ -79,11 +75,13 @@ let months = [
 ];
 
 publishBtn.addEventListener("click", () => {
-  //om någon har skrivit något i artikel och även i titlen så utförs publiceringen
+  //om någon har skrivit något i artikel och även i titlen så utförs publiceringen. Om fälten har någon längd
+  //value är till för att få inputen från användaren
   if (articleFeild.value.length && blogTitleField.value.length) {
     // skapar ett id för varje blogsida
     let letters = "abcdefghijklmnopqrstuvwxyz";
     let blogTitle = blogTitleField.value.split(" ").join("-");
+    //split delar upp titeln i en array(ord för ord) och sedan joinar den med - emellan orden
     let id = "";
     for (let i = 0; i < 4; i++) {
       id += letters[Math.floor(Math.random() * letters.length)];
@@ -104,9 +102,12 @@ publishBtn.addEventListener("click", () => {
           months[date.getMonth()]
         } ${date.getFullYear()}`,
       })
+      //skickar tillbaka ett löfte och utför följande beroende på om löftet höll eller inte
       .then(() => {
+        //fulfillment, href property sets the entire URl of the current page.
         location.href = `/${docName}`;
       })
+      //rejection
       .catch((err) => {
         console.error(err);
       });

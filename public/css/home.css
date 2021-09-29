@@ -50,7 +50,7 @@ body {
 }
 
 .header {
-  margin-top: 60px;
+  /* margin-top: 60px; */
   width: 100%;
   height: 70vh;
   /* height: calc(100vh - 60px); */
@@ -116,4 +116,8 @@ body {
 .btn.dark {
   background: #1b1b1b;
   color: #fff;
+}
+
+.copyright {
+  padding: 0 5vw;
 }
