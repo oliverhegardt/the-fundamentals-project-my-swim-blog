@@ -9,18 +9,12 @@ let bannerPath;
 
 const publishBtn = document.querySelector(".publish-btn");
 
-/* const uploadInput = document.querySelector("#image-upload"); */
-
 //.addEventListner funktionen kommer bli kallad när det särskilda eventet change händer bannerimage.
 
 //change sker by slecting a file in the file picker for <input type="file"> target(bannerImage).addEventListner(type, listener). När change sker så utförs funktionen uploadImage
 bannerImage.addEventListener("change", () => {
   uploadImage(bannerImage, "banner");
 });
-
-/* uploadInput.addEventListener("change", () => {
-  uploadImage(uploadInput, "image");
-}); */
 
 //File API får tillgång till den valda filen med DOM selector. för att kunna ladda upp en bild måste det finnas en filen och typen av filen måste inkluderar stringen image
 

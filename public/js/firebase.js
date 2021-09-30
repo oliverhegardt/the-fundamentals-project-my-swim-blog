@@ -1,5 +1,5 @@
+//firebase referens
 let firebaseConfig = {
-  // Enter your firebase credentials
   apiKey: "AIzaSyCiHA4zRVFbjxdh-7DIfALZGJR9R996Y5A",
   authDomain: "my-blog-1-76876.firebaseapp.com",
   projectId: "my-blog-1-76876",
