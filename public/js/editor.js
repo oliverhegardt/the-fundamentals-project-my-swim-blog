@@ -98,7 +98,7 @@ publishBtn.addEventListener("click", () => {
       })
       //skickar tillbaka ett löfte och utför följande beroende på om löftet höll eller inte
       .then(() => {
-        //fulfillment, href property sets the entire URl of the current page.
+        //fulfillment, href property sets the URl of the current page.
         location.href = `/${docName}`;
       })
       //rejection

@@ -28,7 +28,7 @@ const setupBlog = (data) => {
 
   banner.style.backgroundImage = `url(${data.bannerImage})`;
 
-  //tt.i= tt.i + d.t DOM
+  //tt.i= tt.i + bt.i bt.i = d.t DOM exempel Blog: Streamline tt.i behöver vi inte hämta från databasen eftersom det står i html
   titleTag.innerHTML += blogTitle.innerHTML = data.title;
   //p.i = p.i + d.p
   publish.innerHTML += data.publishedAt;

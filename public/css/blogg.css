@@ -10,7 +10,7 @@
   min-height: auto;
   height: fit-content;
   padding: 0 10px;
-  white-space: normal;
+  white-space: pre-wrap;
 }
 
 .published {
