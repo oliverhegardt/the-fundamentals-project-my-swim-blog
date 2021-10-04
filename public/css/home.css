@@ -96,7 +96,7 @@ body {
   width: 100%;
   padding: 50px 5vw;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr; /* repeat(2, 1fr); */
   grid-gap: 80px;
 }
 

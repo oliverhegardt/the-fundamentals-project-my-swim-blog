@@ -7,13 +7,14 @@ let blogId = decodeURI(location.pathname.split("/").pop());
 let docRef = db.collection("blogs").doc(blogId);
 
 //jQuery get(), docRef.get() är ett löfte, the get method loads data from the database. The then() method returns a promise
-docRef.get().then((doc) => {
-  if (doc.exists) {
+docRef
+  .get()
+  .then((doc) => {
     setupBlog(doc.data());
-  } else {
+  })
+  .catch((err) => {
     location.replace("/");
-  }
-});
+  });
 
 //om dokumentet inte finns så skickas användaren tillbaka till framsidan
 

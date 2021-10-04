@@ -1,5 +1,5 @@
 //importera alla paket
-//importera express bibloteket
+//importera express bibloteket, express är för servern
 const express = require("express");
 const path = require("path");
 //importerar fileupload paketet
