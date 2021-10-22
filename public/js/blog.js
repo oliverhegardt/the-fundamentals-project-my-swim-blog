@@ -16,7 +16,7 @@ docRef
     location.replace("/");
   });
 
-//om dokumentet inte finns så skickas användaren tillbaka till framsidan
+//om dokumentet finns (on fullfillment) setupblog. Om dokument inte finns så skickas användaren tillbaka till home page.
 
 const setupBlog = (data) => {
   const banner = document.querySelector(".banner");

@@ -16,7 +16,7 @@ bannerImage.addEventListener("change", () => {
   uploadImage(bannerImage, "banner");
 });
 
-//File API får tillgång till den valda filen med DOM selector. för att kunna ladda upp en bild måste det finnas en filen och typen av filen måste inkluderar stringen image
+//Fileupload API får tillgång till den valda filen med DOM selector. för att kunna ladda upp en bild måste det finnas en filen och typen av filen måste inkluderar stringen image
 
 //an array containing one object, [0], destruct the array så vi får ut objektet.
 
@@ -35,7 +35,10 @@ const uploadImage = (uploadFile, uploadType) => {
       body: formdata,
     })
       //.then also returns a promise, a promise represents an operation that hasn't completed yet.
-      //om upload svarar så svarar den med json data av bilden. Om datan finns så kontrollerars den att den är av typen banner. .then väntar på att fetch requesten och på svar ska bli lyckad.
+      //om upload svarar så svarar den med json data av bilden. Om datan finns så kontrollerars den att den är av typen banner.
+
+      //.then väntar på att fetch requesten och på svar ska bli lyckad.
+
       // returns the body as promise with json content
       //Because the .then keyword is present, the asynchronous function is paused å körs i bakgrunden until the request completes.
       //response.json() returns a promise resolved to a JSON object
