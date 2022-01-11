@@ -16,9 +16,11 @@ const createBlog = (blog) => {
   blogSection.innerHTML += `
     <div class="blog-card">
         <img src="${data.bannerImage}" class="blog-image" alt="">
-        <h1 class="blog-title">${data.title.substring(0, 100)}</h1>
+        <h3 class="blog-title">${data.title.substring(0, 100)}</h3>
         <p class="blog-overview">${data.article.substring(0, 200) + "..."}</p>
-        <a href="/${blog.id}" class="btn dark">read</a>
+        <a href="/${
+          blog.id
+        }" class="btn dark">Read more about this blog post</a>
     </div>
     `;
 };
